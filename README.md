@@ -473,3 +473,5 @@ Origen + Destino + Vehículo + Batería + Autonomía + Conector + Reserva
 ```
 
 El resultado es un agente con un propósito limitado, entradas claramente definidas y un mecanismo de atención capaz de transformar un mensaje humano desordenado en información estructurada para la toma de decisiones.
+
+![Imagen](https://i.imgur.com/ErV6vja.png)
