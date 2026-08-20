@@ -1,5 +1,7 @@
 # PROYECTO CORTEX — EV Route
 
+![Imagen](https://i.imgur.com/svLrY7L.png)
+
 > **Misión:** Convertir los datos esenciales de un viaje en vehículo eléctrico en una recomendación clara de ruta y recarga, indicando dónde detenerse y con qué nivel aproximado de batería llegará el usuario.
 
 ---
@@ -475,5 +477,3 @@ Origen + Destino + Vehículo + Batería + Autonomía + Conector + Reserva
 El resultado es un agente con un propósito limitado, entradas claramente definidas y un mecanismo de atención capaz de transformar un mensaje humano desordenado en información estructurada para la toma de decisiones.
 
 ![Imagen](https://i.imgur.com/ErV6vja.png)
-
-![Imagen](https://i.imgur.com/svLrY7L.png)
