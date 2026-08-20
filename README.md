@@ -4,6 +4,8 @@
 
 > **Misión:** Convertir los datos esenciales de un viaje en vehículo eléctrico en una recomendación clara de ruta y recarga, indicando dónde detenerse y con qué nivel aproximado de batería llegará el usuario.
 
+![Imagen](https://i.imgur.com/6cYWy6Q.png)
+
 ---
 
 ## FASE 1: El Génesis — Cognición General
