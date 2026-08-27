@@ -26,6 +26,8 @@ Esta especialización reduce el número de variables que el agente debe interpre
 
 ![Imagen](https://i.imgur.com/mDoXDap.jpeg)
 
+![Imagen](https://i.imgur.com/NxJfcg0.jpeg)
+
 ### Nicho específico del agente
 
 EV Route funciona como un:
