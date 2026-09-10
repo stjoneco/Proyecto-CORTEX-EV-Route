@@ -485,3 +485,66 @@ Origen + Destino + Vehículo + Batería + Autonomía + Conector + Reserva
 El resultado es un agente con un propósito limitado, entradas claramente definidas y un mecanismo de atención capaz de transformar un mensaje humano desordenado en información estructurada para la toma de decisiones.
 
 ![Imagen](https://i.imgur.com/ErV6vja.png)
+
+## 2. Arquitectura de Atención
+
+El agente implementa un mecanismo de atención selectiva de tipo **Top-Down**, orientado por el dominio definido en la misión del agente (Sección 1). Este mecanismo prioriza palabras clave, datos e intenciones funcionales relacionadas con dicha misión e ignora deliberadamente saludos fáticos, redundancias y contenido de baja relevancia. La arquitectura sigue el principio **"El Arte de Ignorar"**, cuyo objetivo es optimizar el procesamiento y reducir la carga cognitiva de las etapas posteriores. Como meta operativa, el Gatekeeper busca conservar aproximadamente el **20 % de información útil** y descartar cerca del **80 % de contenido no funcional** cuando el mensaje contiene información accesoria.
+
+### 2.1 Definición de Ruido
+
+En CORTEX, **ruido es cualquier elemento de un mensaje que no aporta información útil para cumplir el objetivo establecido en la misión del agente**. El Gatekeeper no intenta determinar si esa información es verdadera o falsa, sino si merece recursos de procesamiento de acuerdo con su relevancia respecto al dominio definido en la misión del agente (Sección 1).
+
+Por tanto, **ruido ≠ error**. Un dato puede ser completamente correcto y, aun así, ser considerado ruido si no tiene relevancia para la misión. El concepto de ruido se refiere a **baja relevancia funcional**, no a información incorrecta.
+
+| Tipo de ruido | Criterio operativo | Ejemplo |
+|---|---|---|
+| **Ruido fático/social** | Expresiones destinadas únicamente a iniciar, mantener o cerrar la interacción, sin aportar datos o intención relacionada con la misión. | `"Hola"`, `"¿cómo estás?"`, `"buenas tardes"`, `"muchas gracias"`. |
+| **Ruido de relleno o redundante** | Palabras, explicaciones o repeticiones que pueden eliminarse sin perder la intención ni los datos necesarios para actuar. | `"Bueno, pues resulta que quería decirte que, básicamente, lo que necesito es..."` |
+| **Ruido fuera de dominio** | Información o solicitudes que no guardan relación funcional con el objetivo establecido en la misión del agente. | `"Necesito ayuda con un tema que no tiene relación con el dominio definido en la misión del agente."` |
+| **Ruido hostil no funcional** | Insultos o expresiones agresivas que no aportan información necesaria para resolver la solicitud. | `"Eres un inútil"`, `"qué sistema tan estúpido"`. |
+
+### 2.2 Reglas de Atención del Gatekeeper
+
+1. **Mensaje extenso**  
+   **SI** se cumple la condición: **"Si el mensaje tiene más de 500 palabras, el mecanismo de atención solo priorizará los sustantivos clave y la última frase."**  
+   **ENTONCES** el Gatekeeper conservará como máximo aproximadamente el **20 % del contenido funcional identificado** y descartará el contenido restante que haya sido clasificado como ruido.  
+   **Destino:** Procesar Mensaje.
+
+2. **Ruido fático/social**  
+   **SI** un segmento contiene únicamente saludos, despedidas o frases de cortesía y no agrega datos necesarios para la misión,  
+   **ENTONCES** dicho segmento será descartado. Si aparece junto con una solicitud útil, se elimina únicamente el componente fático y se conserva el contenido relevante.  
+   **Destino:** Papelera (Ignorar).
+
+3. **Mensaje corto y sin ruido**  
+   **SI** el mensaje tiene **80 palabras o menos**, pertenece al dominio definido en la misión del agente (Sección 1) y no contiene segmentos identificados como ruido,  
+   **ENTONCES** se conservará y procesará el **100 % del mensaje**.  
+   **Destino:** Procesar Mensaje.
+
+4. **Umbral de urgencia**  
+   **SI** aparecen **3 o más signos de exclamación consecutivos (`!!!`)** o existe una secuencia de mayúsculas sostenidas de **8 o más caracteres alfabéticos consecutivos**, siempre que exista una solicitud identificable,  
+   **ENTONCES** se activará el umbral de atención y se conservará el **100 % del contenido funcional del mensaje**.  
+   **Destino:** Procesar Mensaje.
+
+5. **Mensaje fuera del dominio**  
+   **SI** no se identifica intención, dato clave ni palabra relevante relacionada con el dominio definido en la misión del agente (Sección 1),  
+   **ENTONCES** el contenido será clasificado como fuera de dominio y se generará una respuesta breve de redirección amable hacia las funciones del agente.  
+   **Destino:** Papelera (Ignorar).
+
+6. **Insultos o ataques personales**  
+   **SI** un segmento contiene insultos o ataques personales sin información funcional adicional,  
+   **ENTONCES** dicho contenido será descartado. Si el mismo mensaje contiene además una solicitud válida, se ignorará únicamente el componente hostil y se conservará la solicitud funcional. El manejo emocional profundo se definirá posteriormente en la **Fase 6**.  
+   **Destino:** Papelera (Ignorar).
+
+> **Decisión de diseño sobre la urgencia:** las mayúsculas sostenidas o los signos `!!!` no convierten automáticamente en relevante un mensaje fuera del dominio. Antes de activar el procesamiento completo debe existir una intención procesable relacionada con el dominio definido en la misión del agente (Sección 1).
+
+### 2.3 Prioridad de Evaluación
+
+Las reglas del Gatekeeper se evalúan siguiendo la siguiente cadena de prioridad:
+
+**Dominio de la misión → detección de urgencia → longitud → eliminación de ruido → procesamiento**
+
+La evaluación se ejecuta en este orden y la primera condición aplicable determina el tratamiento del contenido y su destino dentro del flujo de atención.
+
+### 2.4 Fundamento Psicológico
+
+La arquitectura de atención se apoya en cuatro conceptos psicológicos fundamentales. La información de entrada llega inicialmente como **sensación**, es decir, como datos crudos; posteriormente, el sistema identifica su significado mediante la **percepción**. El Gatekeeper aplica entonces un mecanismo de **atención selectiva Top-Down**, guiado por la misión del agente, para priorizar la información relevante. Finalmente, la reducción deliberada de contenido no funcional permite controlar la **carga cognitiva** de las etapas posteriores del procesamiento.
