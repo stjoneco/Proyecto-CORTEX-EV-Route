@@ -548,3 +548,18 @@ La evaluación se ejecuta en este orden y la primera condición aplicable determ
 ### 2.4 Fundamento Psicológico
 
 La arquitectura de atención se apoya en cuatro conceptos psicológicos fundamentales. La información de entrada llega inicialmente como **sensación**, es decir, como datos crudos; posteriormente, el sistema identifica su significado mediante la **percepción**. El Gatekeeper aplica entonces un mecanismo de **atención selectiva Top-Down**, guiado por la misión del agente, para priorizar la información relevante. Finalmente, la reducción deliberada de contenido no funcional permite controlar la **carga cognitiva** de las etapas posteriores del procesamiento.
+
+## 3. Arquitectura de Memoria
+
+EV Route separa su memoria a largo plazo (LTM) en dos tipos. La **Memoria Semántica** es su enciclopedia interna: el conocimiento permanente que consulta para resolver solicitudes. La **Memoria Episódica** guarda los datos y antecedentes de cada conductor. La memoria de trabajo (RAM) de la sesión en curso queda fuera de esta tabla.
+
+| Tipo de Memoria | Categoría de Datos | Descripción | Ejemplo de Entrada |
+|---|---|---|---|
+| Semántica (LTM) | Catálogo de Electrolineras | Guarda las estaciones de recarga con su ubicación sobre el corredor, conectores, potencia y desvío, para proponer paradas compatibles y alcanzables. | "Estación: Electrolinera La Dorada Centro; corredor: Barrancabermeja → Cali; km desde origen: 215; conectores: CCS2, Tipo 2; potencia: 150 kW; desvío: 2 km" |
+| Semántica (LTM) | Vehículos y Conectores Compatibles | Guarda los modelos de vehículos eléctricos con su conector y autonomía de referencia, para verificar compatibilidad con cada estación. | "Vehículo: Tesla Model Y; conector: CCS2; autonomía de referencia: 430 km" |
+| Semántica (LTM) | Reglas de Atención del Gatekeeper | Conserva las seis reglas aprobadas con sus umbrales y su prioridad, para decidir qué parte del mensaje se procesa. | "R1: más de 500 palabras → priorizar sustantivos clave y última frase (~20 % funcional)<br>R2: ruido fático/social → descartar<br>R3: 80 palabras o menos, del dominio y sin ruido → 100 %<br>R4: 3 o más '!!!' o 8 o más mayúsculas consecutivas + solicitud identificable → 100 % funcional<br>R5: fuera de dominio → descartar + redirección amable<br>R6: insultos → descartar el ataque y conservar la solicitud válida<br>Prioridad: dominio → urgencia → longitud → eliminación de ruido → procesamiento" |
+| Semántica (LTM) | Clasificación de Ruido | Guarda la definición de ruido y sus cuatro tipos, para distinguir baja relevancia funcional de información incorrecta. | "Ruido = elemento sin utilidad para la misión (no es error)<br>Fático/social: 'Hola', 'muchas gracias'<br>Relleno o redundante: 'bueno, pues resulta que...'<br>Fuera de dominio: 'recomiéndame un seguro'<br>Hostil no funcional: 'eres un inútil'" |
+| Episódica (LTM) | Perfil del Conductor | Guarda los datos estables y preferencias del conductor para no pedírselos de nuevo en cada viaje. | "Conductor: Carlos Ruiz; vehículo: Tesla Model Y; conector: CCS2; reserva mínima preferida: 15 %; estilo de respuesta: técnico, claro y directo" |
+| Episódica (LTM) | Historial de Viajes | Guarda los viajes anteriores del conductor para reconocer antecedentes y rutas ya planificadas. | "Carlos Ruiz; viaje: Barrancabermeja → Cali; batería de salida: 78 %; autonomía: 430 km; reserva: 15 %; paradas planificadas: La Dorada Centro (150 kW) e Ibagué Norte (120 kW); estado: planificado; fecha: 2026-09-29" |
+
+> **Nota:** los datos de estaciones, distancias, potencias, nombre del conductor y fechas son ilustrativos. Las reglas de atención, los umbrales y la clasificación de ruido corresponden a las definiciones de la Sección 2.
