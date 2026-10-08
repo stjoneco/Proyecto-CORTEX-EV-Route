@@ -563,3 +563,14 @@ EV Route separa su memoria a largo plazo (LTM) en dos tipos. La **Memoria Semán
 | Episódica (LTM) | Historial de Viajes | Guarda los viajes anteriores del conductor para reconocer antecedentes y rutas ya planificadas. | "Carlos Ruiz; viaje: Barrancabermeja → Cali; batería de salida: 78 %; autonomía: 430 km; reserva: 15 %; paradas planificadas: La Dorada Centro (150 kW) e Ibagué Norte (120 kW); estado: planificado; fecha: 2026-09-29" |
 
 > **Nota:** los datos de estaciones, distancias, potencias, nombre del conductor y fechas son ilustrativos. Las reglas de atención, los umbrales y la clasificación de ruido corresponden a las definiciones de la Sección 2.
+>
+## *Semana 8*
+
+![Imagen](https://i.imgur.com/Z8RcFlt.png)
+
+## *Semana 9*
+
+![Imagen](https://i.imgur.com/nTAtBnY.png)
+
+
+
