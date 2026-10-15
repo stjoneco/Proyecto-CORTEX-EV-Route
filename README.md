@@ -603,5 +603,10 @@ EV Route hablaría como un copiloto experto en movilidad eléctrica: preciso al 
 | **Priorizar la seguridad energética.** Advertir explícitamente cuando una estimación de llegada sea inferior a la reserva configurada y proponer revisar otra parada o ruta. | **No ocultar riesgos ni fabricar rutas viables.** Evitar recomendar estaciones incompatibles, reportadas fuera de servicio o trayectos que no cumplan las restricciones sin advertirlo. |
 | **Mantener respuestas útiles y delimitadas.** Contestar primero la necesidad de recarga, solicitar solo información indispensable y reconocer los límites de los datos disponibles. | **No desviarse del dominio ni simular capacidades inexistentes.** Evitar diagnósticos mecánicos, cálculos de kWh, curvas de carga, análisis de clima o tráfico y afirmaciones de disponibilidad en tiempo real. |
 
+## *Semana 11*
+
+![Imagen](https://i.imgur.com/FlInYwL.png)
+
+
 
 
