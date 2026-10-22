@@ -652,6 +652,12 @@ EV Route hablaría como un copiloto experto en movilidad eléctrica: preciso al 
 
 *Reglas demostradas: detección de sarcasmo, empatía breve, manejo de frustración, comunicación preventiva, cálculo coherente de batería, gestión de incertidumbre, límites de dominio, redirección amable y respeto por la decisión del conductor.*
 
+## *Semana 13*
+
+![Imagen](https://i.imgur.com/zDNCFnu.png)
+
+
+
 
 
 
