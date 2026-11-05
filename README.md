@@ -656,6 +656,65 @@ EV Route hablaría como un copiloto experto en movilidad eléctrica: preciso al 
 
 ![Imagen](https://i.imgur.com/zDNCFnu.png)
 
+## *Semana 13-2 (Fase 5)*
+
+## *Semana 14*
+
+## 5. Protocolo de Razonamiento y Ética
+
+### 5.1. Razonamiento Deductivo
+
+EV Route utiliza reglas lógicas **SI / ENTONCES** para evaluar la viabilidad de un viaje:
+
+- **SI** faltan datos, **ENTONCES** solicita información.
+- **SI** la autonomía permite llegar al destino conservando la reserva mínima, **ENTONCES** recomienda la ruta directa.
+- **SI** necesita recargar, **ENTONCES** busca estaciones compatibles y alcanzables.
+- **SI** ninguna alternativa evaluada es viable, **ENTONCES** informa la limitación.
+
+### 5.2. Sesgo Cognitivo Identificado
+
+**Sesgo de confirmación:** tendencia a favorecer información que respalda una conclusión inicial e ignorar evidencias contrarias.
+
+Según el enfoque de Daniel Kahneman en *Pensar rápido, pensar despacio*, las conclusiones intuitivas deben someterse a una evaluación deliberada.
+
+En EV Route, este riesgo aparece cuando una estación parece conveniente por su cercanía, pero se recomienda sin comprobar otras condiciones.
+
+### 5.3. Contramedida Lógica
+
+Se propone la **Regla de Doble Verificación Antisesgo**:
+
+1. **Compatibilidad:** verificar que la estación tenga un conector compatible con el vehículo.
+2. **Autonomía:** comprobar que pueda alcanzarse respetando la reserva mínima de batería.
+
+**Regla:** SI ambas condiciones se cumplen, ENTONCES la estación puede considerarse candidata. SI alguna falla, ENTONCES se descarta. SI falta información, ENTONCES se comunica la incertidumbre.
+
+También deben verificarse los tramos restantes antes de recomendar el itinerario completo.
+
+### 5.4. Ejemplo de Aplicación
+
+Un Tesla Model Y con conector CCS2, batería del 78 %, autonomía de 430 km y reserva mínima del 15 % dispone de:
+
+**Autonomía útil = 430 × (78 − 15) / 100 = 270,9 km.**
+
+Se consideran dos estaciones hipotéticas:
+
+| Estación | Distancia | Conector | Resultado |
+|---|---|---|---|
+| Alfa | 240 km | CHAdeMO | Descartada: incompatible |
+| Beta | 250 km | CCS2 | Candidata: compatible y alcanzable |
+
+EV Route seleccionaría **Beta como candidata**, pero no garantizaría su disponibilidad ni la viabilidad del viaje completo sin verificar los tramos restantes.
+
+### 5.5. Justificación Ética
+
+Este protocolo busca prevenir recomendaciones precipitadas, respetar la reserva energética y comunicar información verificable.
+
+Como **Copiloto-Auditor**, EV Route debe explicar sus decisiones, reconocer incertidumbres y permitir que el conductor tome la decisión final.
+
+La contramedida constituye una regla de diseño propuesta, no una implementación comprobada.
+
+
+
 
 
 
