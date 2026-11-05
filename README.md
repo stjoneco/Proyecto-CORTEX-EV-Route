@@ -658,6 +658,8 @@ EV Route hablaría como un copiloto experto en movilidad eléctrica: preciso al 
 
 ## *Semana 13-2 (Fase 5)*
 
+![Imagen](https://i.imgur.com/qgOgB2A.png)
+
 ## *Semana 14*
 
 ## 5. Protocolo de Razonamiento y Ética
